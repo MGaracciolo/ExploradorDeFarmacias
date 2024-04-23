@@ -8,14 +8,23 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <!-- Colores primarios -->
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
-    <!-- Otros colores personalizados -->
+    <color name="colorPrimary">#4CAF50</color>
+    <color name="colorPrimaryDark">#388E3C</color>
+    <color name="colorAccent">#FF4081</color>
+    <!-- Colores adicionales -->
     <color name="colorTealLight">#64FFDA</color>
     <color name="colorTealDark">#00BFA5</color>
-    <color name="colorPurpleLight">#BB86FC</color>
-    <color name="colorPurpleDark">#6200EE</color>
+    <color name="colorPurpleLight">#9C27B0</color>
+    <color name="colorPurpleDark">#7B1FA2</color>
+    <!-- Otros colores personalizados -->
+    <color name="colorBlue">#2196F3</color>
+    <color name="colorGreen">#4CAF50</color>
+    <color name="colorRed">#F44336</color>
+    <color name="colorOrange">#FF9800</color>
+    <!-- Colores nocturnos -->
+    <color name="colorNightPrimary">#424242</color>
+    <color name="colorNightPrimaryDark">#303030</color>
+    <color name="colorNightAccent">#FF9800</color>
 
 
 

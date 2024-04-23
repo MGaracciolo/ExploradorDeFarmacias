@@ -17,6 +17,7 @@ import com.nela.exploradordefarmacias.R;
 import com.nela.exploradordefarmacias.databinding.FragmentConfiguracionBinding;
 
 import java.util.List;
+import java.util.Objects;
 
 public class ConfiguracionFragment extends Fragment {
     public static int configuracionMapa=1;
@@ -31,15 +32,20 @@ public class ConfiguracionFragment extends Fragment {
 
         binding = FragmentConfiguracionBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        r1= binding.rbEspanol;
-        r2=binding.rbEnglish;
-        /*binding.rgTema.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        r1 = binding.rbEspanol;
+        r2 = binding.rbEnglish;
+        binding.rgTema.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                requireActivity().setTheme(R.style.AppTheme_Dark);
+                if (binding.rbClaro.isChecked()){
+                    requireActivity().setTheme(R.style.Theme_NavigationDrawer_Light);
+                }
+                if (binding.rbOscuro.isChecked()){
+                    requireActivity().setTheme(R.style.Theme_NavigationDrawer_Night);
+                }
+            }
+        });
 
-            }});
-         */
         binding.rgMapa.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
