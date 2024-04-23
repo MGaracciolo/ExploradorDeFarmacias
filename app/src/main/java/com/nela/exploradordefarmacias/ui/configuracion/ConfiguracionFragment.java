@@ -10,6 +10,7 @@ import android.widget.RadioGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentController;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -22,19 +23,16 @@ import java.util.Objects;
 public class ConfiguracionFragment extends Fragment {
     public static int configuracionMapa=1;
     private FragmentConfiguracionBinding binding;
-    private RadioButton r1,r2;
+
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         ConfiguracionViewModel mv =
                 new ViewModelProvider(this).get(ConfiguracionViewModel.class);
-
         binding = FragmentConfiguracionBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        r1 = binding.rbEspanol;
-        r2 = binding.rbEnglish;
-        binding.rgTema.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        /*binding.rgTema.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (binding.rbClaro.isChecked()){
@@ -44,7 +42,7 @@ public class ConfiguracionFragment extends Fragment {
                     requireActivity().setTheme(R.style.Theme_NavigationDrawer_Night);
                 }
             }
-        });
+        });*/
 
         binding.rgMapa.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -55,7 +53,8 @@ public class ConfiguracionFragment extends Fragment {
                         configuracionMapa= i;
                     }
                 });
-                //aca tuve que pasarle los atributos porq cuando le paso el checked id desde afuera del onchanged no me da el checkeado me da un numero re long
+                //aca tuve que pasarle los atributos porq cuando le paso el checked id
+                // desde afuera del onchanged no me da el checkeado me da un numero re long
                mv.obtenerTipoMapa(binding.rbNormal.isChecked(),binding.rbHibrido.isChecked());
 
             }
@@ -66,7 +65,6 @@ public class ConfiguracionFragment extends Fragment {
                mv.getMutableConfiguracion().observe(getViewLifecycleOwner(), new Observer<Configuracion>() {
                    @Override
                    public void onChanged(Configuracion configuracion) {
-
                        binding.tvMapa.setText(configuracion.getMapa());
                        binding.rbNormal.setText(configuracion.getNormal());
                        binding.rbHibrido.setText(configuracion.getHib());
@@ -78,10 +76,10 @@ public class ConfiguracionFragment extends Fragment {
                });//yo seeee que no deberia usar logica, pero me costo entender como usar los radiobutton,
                 //tanto para los mapas como para todo el resto de las cosas, deberia haber usado
                 //botones pero ya no me quedo tiempo para cambiar
-               if (r1.isChecked()){
+               if (binding.rbEspanol.isChecked()){
                    mv.elegirConfiguracion("Español");
                }
-               if (r2.isChecked()){
+               if (binding.rbEnglish.isChecked()){
                    mv.elegirConfiguracion("Ingles");
                }
             }
