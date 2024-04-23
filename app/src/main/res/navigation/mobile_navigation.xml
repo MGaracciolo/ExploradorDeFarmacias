@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_farmacias">
+    <fragment
+        android:id="@+id/nav_farmacias"
+        android:name="com.nela.exploradordefarmacias.ui.farmacias.FarmaciasFragment"
+        android:label="@string/lista_de_farmacias"
+        tools:layout="@layout/fragment_farmacias" >
+        <action
+            android:id="@+id/action_nav_farmacias_to_farmaciaFragment"
+            app:destination="@id/farmaciaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_mapas"
+        android:name="com.nela.exploradordefarmacias.ui.mapa.MapsFragment"
+        android:label="@string/mapas"
+        tools:layout="@layout/fragment_maps" />
+    <fragment
+        android:id="@+id/nav_configuracion"
+        android:name="com.nela.exploradordefarmacias.ui.configuracion.ConfiguracionFragment"
+        android:label="@string/configuraci_n"
+        tools:layout="@layout/fragment_configuracion" />
+    <fragment
+        android:id="@+id/nav_salir"
+        android:name="com.nela.exploradordefarmacias.ui.salida.SalirFragment"
+        android:label="@string/salir"
+        tools:layout="@layout/fragment_salir" />
+    <fragment
+        android:id="@+id/farmaciaFragment"
+        android:name="com.nela.exploradordefarmacias.ui.farmacias.FarmaciaFragment"
+        android:label="Farmacia" >
+        <action
+            android:id="@+id/action_farmaciaFragment_to_nav_farmacias"
+            app:destination="@id/nav_farmacias" />
+    </fragment>
+</navigation>
